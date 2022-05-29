@@ -61,3 +61,6 @@ crashlytics-build.properties
 
 DeadCrows/UserSettings/EditorUserSettings.asset
 DeadCrows/UserSettings/EditorUserSettings.asset
+DeadCrows/Library/ArtifactDB
+*.md5
+*.json
