@@ -122,7 +122,7 @@ MonoBehaviour:
   m_MinSize: {x: 679, y: 492}
   m_MaxSize: {x: 14002, y: 14042}
   vertical: 0
-  controlID: 15
+  controlID: 57
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 492}
   m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
-  controlID: 16
+  controlID: 18
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -172,7 +172,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
-  controlID: 17
+  controlID: 94
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -378,9 +378,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 4.058255, y: -3.4268873, z: -14.091023}
+    m_Target: {x: 3.6810014, y: -4.375891, z: -14.460063}
     speed: 2
-    m_Value: {x: 4.058255, y: -3.4268873, z: -14.091023}
+    m_Value: {x: 3.6771271, y: -4.217043, z: -14.411479}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -431,9 +431,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 7.5919437
+    m_Target: 11.282349
     speed: 2
-    m_Value: 7.5919437
+    m_Value: 10.796506
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -486,9 +486,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 92580000
-      m_LastClickedID: 22674
-      m_ExpandedIDs: 32f9ffffb8fffffff0560000f6560000fa56000012570000
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 36fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -639,22 +639,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Sprites/Platforms
+    - Assets
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Sprites/Platforms
+  - Assets
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: C:\Users\taylo\Documents\Software Projects\Unity\GDV_Impact_for_Games\DeadCrows
+  m_LastProjectPath: C:\Users\Home\Documents\GitHub\GDV_Impact_for_Games\DeadCrows
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 21}
-    m_SelectedIDs: 0e4b0000
-    m_LastClickedID: 19214
-    m_ExpandedIDs: 00000000f0420000fa42000000ca9a3b
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 9e470000
+    m_LastClickedID: 18334
+    m_ExpandedIDs: 000000009e47000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -682,7 +682,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000f0420000
+    m_ExpandedIDs: 000000009e470000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -709,7 +709,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000000000003043000074440000c44e0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
