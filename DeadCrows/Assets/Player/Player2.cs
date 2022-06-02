@@ -10,7 +10,7 @@ public class Player2 : MonoBehaviour
     // initialising variables
     public float moveSpeed = 5f;
     public float jumpheight = 5f;
-    public Rigidbody2D rb;
+    public Rigidbody2D playerrb;
     public bool GroundCheck;
     [SerializeField] private LayerMask whatisground;
     [SerializeField] private Transform Groundcheck; //set to object below person
@@ -23,7 +23,7 @@ public class Player2 : MonoBehaviour
 
     private void Awake()
     {
-        rb = transform.GetComponent<Rigidbody2D>();
+        playerrb = transform.GetComponent<Rigidbody2D>();
     }
 
 
@@ -48,13 +48,20 @@ public class Player2 : MonoBehaviour
             }
 
 
+        if (playerrb.velocity.x < 0)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+        if (playerrb.velocity.x > 0)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
 
-        
 
         if (Input.GetKeyDown(KeyCode.UpArrow) && GroundCheck == true)
         {
             Debug.Log("Jump!");
-            rb.velocity = new Vector2(rb.velocity.x, jumpheight);
+            playerrb.velocity = new Vector2(playerrb.velocity.x, jumpheight);
 
         }
 
@@ -64,19 +71,19 @@ public class Player2 : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            rb.velocity = new Vector2(-moveSpeed, rb.velocity.y);
+            playerrb.velocity = new Vector2(-moveSpeed, playerrb.velocity.y);
 
 
         };
         if (Input.GetKey(KeyCode.RightArrow) ) // this false bit might be wrong
         {
-            rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
+            playerrb.velocity = new Vector2(moveSpeed, playerrb.velocity.y);
 
         };
 
        if (Input.GetKey(KeyCode.RightArrow) == false && Input.GetKey(KeyCode.LeftArrow) == false)
        {
-           rb.velocity = new Vector2(0, rb.velocity.y);
+           playerrb.velocity = new Vector2(0, playerrb.velocity.y);
        }
 
        
