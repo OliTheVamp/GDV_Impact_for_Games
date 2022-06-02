@@ -62,3 +62,8 @@ crashlytics-build.properties
 DeadCrows/Library/ArtifactDB
 DeadCrows/Library/SourceAssetDB
 *.log
+DeadCrows/Library/PackageManager/ProjectCache
+*.md5
+DeadCrows/Library/SceneVisibilityState.asset
+DeadCrows/Library/SourceAssetDB
+*.log
