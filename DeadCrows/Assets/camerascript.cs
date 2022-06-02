@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,7 @@ public class camerascript : MonoBehaviour
 {
 
     public Camera usedcamera; public GameObject player1; public GameObject player2;
+    public float camoffset = 5.0f;
     Vector3 cameralocation;
     // Start is called before the first frame update
     void Start()
@@ -44,7 +46,7 @@ public class camerascript : MonoBehaviour
 
         //  cam.transform.position = Vector3.Slerp(cam.transform.position, cameraDestination, followTimeDelta);
         cameralocation = Vector3.Slerp(cam.transform.position, cameraDestination, followTimeDelta);
-        cam.transform.position = new Vector3(0.0f, cameralocation.y + 6.5f, cameralocation.z);
+        cam.transform.position = new Vector3(0.0f, cameralocation.y + camoffset, cameralocation.z);
         if ((cameraDestination - cam.transform.position).magnitude <= 0.05f)
         {
             cam.transform.position = cameraDestination;
