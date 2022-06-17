@@ -4,6 +4,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Events;
 
 public class Player1 : MonoBehaviour
 {
@@ -12,15 +13,25 @@ public class Player1 : MonoBehaviour
     public float jumpheight = 5f;
     public Rigidbody2D playerrb;
     public bool GroundCheck;
+    public Animator animator;
     [SerializeField] private LayerMask whatisground;
     [SerializeField] private Transform Groundcheck; //set to object below person
     const float groundedradius = .25f;
 
-   
+    //Switch state for jump animation 
+    [Header("Events")]
+    [Space]
 
-   
+    public UnityEvent OnLandEvent;
+
+    [System.Serializable]
+    public class BoolEvent : UnityEvent<bool> { }
+
+    public BoolEvent OnLanding;
+    private bool isJumping = false;
 
 
+    //Original script start
     private void Awake()
     {
         playerrb = transform.GetComponent<Rigidbody2D>();
@@ -40,11 +51,16 @@ public class Player1 : MonoBehaviour
          if (colliders)
             {
                 GroundCheck = true;
-                
+
+            //Setting state for jump animation
+            animator.SetBool("isJumping", false);
             }
             else
             {
                 GroundCheck = false;
+
+            //Setting state for jump animation
+            animator.SetBool("isJumping", true);
             }
 
 
@@ -66,18 +82,21 @@ public class Player1 : MonoBehaviour
         }
 
 
-
         // input
 
         if (Input.GetKey(KeyCode.A))
         {
             playerrb.velocity = new Vector2(-moveSpeed, playerrb.velocity.y);
 
+            //Setting state for walk animation
+            animator.SetFloat("Speed", Mathf.Abs(moveSpeed));
 
         };
         if (Input.GetKey(KeyCode.D) ) // this false bit might be wrong
         {
             playerrb.velocity = new Vector2(moveSpeed, playerrb.velocity.y);
+            //Setting state for walk animation
+            animator.SetFloat("Speed", Mathf.Abs(moveSpeed));
 
         };
 
