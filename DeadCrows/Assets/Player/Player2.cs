@@ -12,24 +12,31 @@ public class Player2 : MonoBehaviour
     public float jumpheight = 5f;
     public Rigidbody2D playerrb;
     public bool GroundCheck;
+    public Animator animator; 
     [SerializeField] private LayerMask whatisground;
     [SerializeField] private Transform Groundcheck; //set to object below person
     const float groundedradius = .25f;
 
-   
 
-   
+    ////Unnecessary I suppose
+    //[Header("Events")]
+    //[Space]
 
+    //public UnityEvent OnLandEvent;
+
+    //[System.Serializable]
+    //public class BoolEvent : UnityEvent<bool> { }
+
+    //public BoolEvent OnLanding;
+    //private bool isJumping = false;
+
+    //public BoolEvent OnStop;
+    //private bool isMoving = false;
 
     private void Awake()
     {
         playerrb = transform.GetComponent<Rigidbody2D>();
     }
-
-
-
-
-
 
     void Update()
 
@@ -40,11 +47,18 @@ public class Player2 : MonoBehaviour
          if (colliders)
             {
                 GroundCheck = true;
-                
+
+            //Setting state for jump animation
+            animator.SetBool("isJumping", false);
+
             }
             else
             {
                 GroundCheck = false;
+
+            //Setting state for jump animation
+            animator.SetBool("isJumping", true);
+
             }
 
 
@@ -72,19 +86,24 @@ public class Player2 : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             playerrb.velocity = new Vector2(-moveSpeed, playerrb.velocity.y);
+            //Setting state for walk animation
+            animator.SetBool("isMoving", true);
 
 
         };
         if (Input.GetKey(KeyCode.RightArrow) ) // this false bit might be wrong
         {
             playerrb.velocity = new Vector2(moveSpeed, playerrb.velocity.y);
+            //Setting state for walk animation
+            animator.SetBool("isMoving", true);
 
         };
 
        if (Input.GetKey(KeyCode.RightArrow) == false && Input.GetKey(KeyCode.LeftArrow) == false)
        {
            playerrb.velocity = new Vector2(0, playerrb.velocity.y);
-       }
+           animator.SetBool("isMoving", false);
+        }
 
        
     }
