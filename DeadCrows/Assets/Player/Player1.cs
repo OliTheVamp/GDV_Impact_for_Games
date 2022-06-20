@@ -18,17 +18,20 @@ public class Player1 : MonoBehaviour
     [SerializeField] private Transform Groundcheck; //set to object below person
     const float groundedradius = .25f;
 
-    //Switch state for jump animation 
-    [Header("Events")]
-    [Space]
+    ////Unnecessary I suppose
+    //[Header("Events")]
+    //[Space]
 
-    public UnityEvent OnLandEvent;
+    //public UnityEvent OnLandEvent;
 
-    [System.Serializable]
-    public class BoolEvent : UnityEvent<bool> { }
+    //[System.Serializable]
+    //public class BoolEvent : UnityEvent<bool> { }
 
-    public BoolEvent OnLanding;
-    private bool isJumping = false;
+    //public BoolEvent OnLanding;
+    //private bool isJumping = false;
+
+    //public BoolEvent OnStop;
+    //private bool isMoving = false;
 
 
     //Original script start
@@ -36,10 +39,6 @@ public class Player1 : MonoBehaviour
     {
         playerrb = transform.GetComponent<Rigidbody2D>();
     }
-
-
-
-
 
 
     void Update()
@@ -87,22 +86,21 @@ public class Player1 : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             playerrb.velocity = new Vector2(-moveSpeed, playerrb.velocity.y);
-
             //Setting state for walk animation
-            animator.SetFloat("Speed", Mathf.Abs(moveSpeed));
-
+            animator.SetBool("isMoving", true);
         };
         if (Input.GetKey(KeyCode.D) ) // this false bit might be wrong
         {
             playerrb.velocity = new Vector2(moveSpeed, playerrb.velocity.y);
             //Setting state for walk animation
-            animator.SetFloat("Speed", Mathf.Abs(moveSpeed));
+            animator.SetBool("isMoving", true);
 
         };
 
         if (Input.GetKey(KeyCode.D) == false && Input.GetKey(KeyCode.A) == false)
         {
             playerrb.velocity = new Vector2(0, playerrb.velocity.y);
+            animator.SetBool("isMoving", false);
         }
 
        
