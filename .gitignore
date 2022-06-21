@@ -59,20 +59,9 @@ sysinfo.txt
 crashlytics-build.properties
 
 
-DeadCrows/Library/ArtifactDB
-DeadCrows/Library/SourceAssetDB
+
 *.log
-DeadCrows/Library/PackageManager/ProjectCache
+
 *.md5
-DeadCrows/Library/SceneVisibilityState.asset
-DeadCrows/Library/SourceAssetDB
+
 *.log
-DeadCrows/Library/ArtifactDB
-DeadCrows/Library/Artifacts/ce/ce918beb41342396b28e3dea63a804c9
-DeadCrows/Library/Artifacts/dd/ddb281226292d9882ed6d61d0ef699ab
-DeadCrows/Library/Artifacts/ec/ec3e85ea639e50c4096ef1114e8de13a
-DeadCrows/Library/SceneVisibilityState.asset
-DeadCrows/Library/ShaderCache/EditorEncounteredVariants
-DeadCrows/Library/SourceAssetDB
-DeadCrows/Library/StateCache/SceneView/8c/8cd7c613bf844de3b80696e27a479d5e.json
-DeadCrows/Logs/shadercompiler-UnityShaderCompiler.exe0.log
