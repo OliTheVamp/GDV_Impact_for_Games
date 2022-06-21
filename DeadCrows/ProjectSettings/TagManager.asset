@@ -7,7 +7,6 @@ TagManager:
   - Ground
   - Solid
   - Collectable
-  - Rotating
   - LightActivator
   layers:
   - Default
