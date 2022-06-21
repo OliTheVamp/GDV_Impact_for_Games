@@ -8,7 +8,6 @@ TagManager:
   - Solid
   - Collectable
   - Rotating
-  - LightActivator
   layers:
   - Default
   - TransparentFX
