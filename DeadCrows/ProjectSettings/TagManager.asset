@@ -9,6 +9,19 @@ TagManager:
   - Collectable
   - Rotating
   - LightActivator
+  - Feather1
+  - Rubble1
+  - ChairToFlip1
+  - PlatformToFlip1
+  - StackOfDishes1
+  - Button1
+  - LightSwitch
+  - CandleStick1
+  - CandleStick2
+  - CandleStick3
+  - PlatformToFlipA
+  - PlatformToFlipB
+  - PlatformToFlipC
   layers:
   - Default
   - TransparentFX
