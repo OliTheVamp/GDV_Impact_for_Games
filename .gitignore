@@ -65,3 +65,7 @@ crashlytics-build.properties
 *.md5
 
 *.log
+DeadCrows/Library/ArtifactDB
+DeadCrows/Library/CurrentLayout-default.dwlt
+DeadCrows/Library/SourceAssetDB
+DeadCrows/Library/PackageManager/ProjectCache.md5
