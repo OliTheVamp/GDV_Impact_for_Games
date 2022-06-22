@@ -104,7 +104,7 @@ public class Player2 : MonoBehaviour
     // Light the Candles for Player 1 and Clear their Initial Darkness
     private void LightCandles()
     {
-        
+
         print("Turning on the Lights!");
     }
 
