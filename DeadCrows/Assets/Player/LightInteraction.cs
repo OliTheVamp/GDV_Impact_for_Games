@@ -5,7 +5,7 @@ using UnityEngine;
 public class LightInteraction : MonoBehaviour
 {
     public ParticleSystem[] P1Lights;
-    //public GameObject Lights;
+    public GameObject Darkness;
     int Increment = 0;
 
     void Start()
@@ -32,6 +32,7 @@ public class LightInteraction : MonoBehaviour
         //Checks if the collision objects tag  match
         if (collision.gameObject.tag == "LightActivator")
         {
+            Darkness.SetActive(false);
             // P1Lights.enabled = true;
             Increment = 0;
             foreach (ParticleSystem P1Light in P1Lights)
