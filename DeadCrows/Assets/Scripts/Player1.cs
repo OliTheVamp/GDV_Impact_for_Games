@@ -143,7 +143,7 @@ public class Player1 : MonoBehaviour
         }
     }
 
-    private void ClearCollectable (Collider2D collider)
+    private void ClearCollectable(Collider2D collider)
     {
         GameObject.Destroy(collider.gameObject);
     }
