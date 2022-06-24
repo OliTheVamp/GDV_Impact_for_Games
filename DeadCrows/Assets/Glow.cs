@@ -12,12 +12,12 @@ public class Glow : MonoBehaviour
     {
         GlowEffect.SetActive(true);
         // Debug.Log("Active");
-        //NormalImage.enabled = false;
+        NormalImage.enabled = false;
     }
     public void GlowEnder()
     {
         GlowEffect.SetActive(false);
         // Debug.Log("Active");
-       // NormalImage.enabled = (true);
+        NormalImage.enabled = (true);
     }
 }

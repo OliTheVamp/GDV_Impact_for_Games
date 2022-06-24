@@ -6,6 +6,11 @@ using UnityEngine.Events;
 
 public class Player1 : MonoBehaviour
 {
+    //Pause Menu
+    public Canvas canvas;
+    bool paused = false;
+
+
     // initialising variables
     public float moveSpeed = 5f;
     public float jumpheight = 5f;
@@ -86,9 +91,22 @@ public class Player1 : MonoBehaviour
         {
 
             playerObject.velocity = new Vector2(0, playerObject.velocity.y);
-
+            
             // Setting state for walk animation
             animator.SetBool("isMoving", false);
+        }
+
+        //MenuInputs
+        if (Input.GetKey(KeyCode.P) && !paused)
+        {
+          //  PauseMenu.SetActive(true);
+            canvas.GetComponent<Canvas>().enabled = true;
+
+        }
+        if (Input.GetKey(KeyCode.P) && paused == true)
+        {
+           // PauseMenu.SetActive(false);
+            canvas.GetComponent<Canvas>().enabled = false;
         }
     }
 

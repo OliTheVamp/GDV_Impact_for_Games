@@ -2,8 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class Menu : MonoBehaviour
+
+public class MenuMainScene : MonoBehaviour
 {
+    public GameObject PauseMenu;
+    public Canvas canvas;
+    bool paused = false;
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P) && paused == false)
+        {
+            PauseMenu.SetActive(true);
+            canvas.GetComponent<Canvas>().enabled = true;
+
+        }
+        if (Input.GetKeyDown(KeyCode.P) && paused == true)
+        {
+            PauseMenu.SetActive(false);
+            canvas.GetComponent<Canvas>().enabled = false;
+        }
+    }
     public void StartButton()
     {
         SceneManager.LoadScene(1);
@@ -14,7 +32,7 @@ public class Menu : MonoBehaviour
     {
         SceneManager.LoadScene(2);
         Debug.Log("About");
-    
+
     }
 
     public void QuitButton()
@@ -25,7 +43,7 @@ public class Menu : MonoBehaviour
 
     public void Testing()
     {
-        
+
         Debug.Log("Testing");
     }
     public void ReturnButton()
