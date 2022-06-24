@@ -14,6 +14,8 @@ public class Player2 : MonoBehaviour
     public Animator animator;
     public AudioManager SFXManager;
 
+    private int DoubleP2TriggersPressed = 0;
+
     [SerializeField] private LayerMask whatisground;
     [SerializeField] private Transform Groundcheck; //set to object below person
 
@@ -28,7 +30,6 @@ public class Player2 : MonoBehaviour
 
     void Update()
     {
-
         RaycastHit2D colliders = Physics2D.Linecast(Groundcheck.position, Groundcheck.position + new Vector3(0, -groundedradius, 0), whatisground); // check position from bottom for a distance. so much better then circle casting oh god.
         Debug.DrawLine(Groundcheck.position, Groundcheck.position + new Vector3(0, -groundedradius, 0), Color.red);
 
@@ -95,7 +96,39 @@ public class Player2 : MonoBehaviour
         bool CollectableTouched = true;
 
         if (collider.gameObject.CompareTag("LightSwitch")) LightCandles();
-        if (collider.gameObject.CompareTag("StackOfDishes1")) FlipObject("ChairToFlip1");
+        else if (collider.gameObject.CompareTag("StackOfDishes1")) FlipObject("ChairToFlip1");
+        else if (collider.gameObject.CompareTag("BlackFeather2")) ClearRubble("Rubble2");
+
+        // Update the environment counter as both players must activate these
+        else if (collider.gameObject.CompareTag("Egg")) GameObject.Find("Enviroment").GetComponent<Environment>().TotalEggsActivated++;
+
+        // Player 2 must touch both triggers to lower the platform
+        else if (collider.gameObject.CompareTag("DoubleP2Trigger"))
+        {
+            DoubleP2TriggersPressed++;
+
+            if (DoubleP2TriggersPressed == 2)
+            {
+                GameObject[] ObjectNameTag = GameObject.FindGameObjectsWithTag("DoubleP2Platform");
+
+                // Lowers all Objects with Matching ObjectNameTag
+                foreach (GameObject targetObject in ObjectNameTag)
+                {
+                    targetObject.transform.position = new Vector3(targetObject.transform.position.x,
+                                                                  targetObject.transform.position.y - 1,
+                                                                  targetObject.transform.position.z);
+                }
+
+                SFXManager.PlaySFX("ClearRubble");
+            }
+        }
+
+        else if (collider.gameObject.CompareTag("LastFeathers")) ClearRubble("BarrierToDestroy");
+
+        // Update the environment counter as both players must activate these
+        else if (collider.gameObject.CompareTag("LatActivator")) GameObject.Find("Enviroment").GetComponent<Environment>().LastItemsActivated++;
+
+        // Only clear collectibles
         else CollectableTouched = false;
 
         if (CollectableTouched) ClearCollectable(collider);

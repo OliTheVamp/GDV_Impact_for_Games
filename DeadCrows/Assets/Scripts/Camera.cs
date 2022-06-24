@@ -41,7 +41,7 @@ public class Camera : MonoBehaviour
         // Calculate midpoint between both players
         float midpoint = (cameraMinHeight + cameraMaxHeight) / 2;
 
-        print("midpoint:" + midpoint + ", cameraMinHeight:" + cameraMinHeight + " vs adjustedP2YPos:" + adjustedP2YPos);
+        //print("midpoint:" + midpoint + ", cameraMinHeight:" + cameraMinHeight + " vs adjustedP2YPos:" + adjustedP2YPos);
 
         Vector3 currentCameraPos = thisCamera.transform.position;
 
