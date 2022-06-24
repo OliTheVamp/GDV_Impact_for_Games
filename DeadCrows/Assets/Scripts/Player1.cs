@@ -10,7 +10,6 @@ public class Player1 : MonoBehaviour
     public Canvas canvas;
     bool paused = false;
 
-
     // initialising variables
     public float moveSpeed = 5f;
     public float jumpheight = 5f;
@@ -21,6 +20,8 @@ public class Player1 : MonoBehaviour
 
     [SerializeField] private LayerMask whatisground;
     [SerializeField] private Transform Groundcheck; //set to object below person
+
+    private bool HeartsShown = false;
 
     const float groundedradius = .25f;
 
@@ -36,6 +37,18 @@ public class Player1 : MonoBehaviour
 
     void Update()
     {
+        if (HeartsShown)
+        {
+            float currentHeartOpacity = GameObject.FindWithTag("R_Heart").GetComponent<Renderer>().material.color.a;
+
+            if (currentHeartOpacity > 0.1)
+            {
+                float thisOpacity = currentHeartOpacity * 0.9f;
+
+                GameObject.FindWithTag("R_Heart").GetComponent<Renderer>().material.color = new Color(1f, 1f, 1f, thisOpacity);
+            }
+            else GameObject.FindWithTag("R_Heart").GetComponent<Renderer>().material.color = new Color(1f, 1f, 1f, 0f);
+        }
 
         RaycastHit2D colliders = Physics2D.Linecast(Groundcheck.position, Groundcheck.position + new Vector3(0, -groundedradius, 0), whatisground); // check position from bottom for a distance. so much better then circle casting oh god.
         Debug.DrawLine(Groundcheck.position, Groundcheck.position + new Vector3(0, -groundedradius, 0), Color.red);
@@ -120,6 +133,43 @@ public class Player1 : MonoBehaviour
         else if (collider.gameObject.CompareTag("CandleStick1")) FlipObject("PlatformToFlipA");
         else if (collider.gameObject.CompareTag("CandleStick2")) FlipObject("PlatformToFlipB");
         else if (collider.gameObject.CompareTag("CandleStick3")) FlipObject("PlatformToFlipC");
+
+        // Update the environment counter as both players must activate these
+        else if (collider.gameObject.CompareTag("Egg")) GameObject.Find("Enviroment").GetComponent<Environment>().TotalEggsActivated++;
+
+        else if (collider.gameObject.CompareTag("L_NPC"))
+        {
+            GameObject.FindWithTag("L_Heart").GetComponent<Renderer>().material.color = new Color(1f, 1f, 1f, 1f);
+            GameObject.FindWithTag("R_Heart").GetComponent<Renderer>().material.color = new Color(1f, 1f, 1f, 1f);
+
+            // Gather both Playeers
+            GameObject[] BothPlayers = GameObject.FindGameObjectsWithTag("Player");
+
+            Vector2 Player2Pos = BothPlayers[1].transform.position;
+
+            GameObject.FindWithTag("R_Heart").transform.position = new Vector2(Player2Pos.x, Player2Pos.y - 0.5f);
+
+            SFXManager.PlaySFX("HappyHeart");
+
+            HeartsShown = true;
+            CollectableTouched = false;
+
+            ClearRubble("Rubble3");
+        }
+
+        else if (collider.gameObject.CompareTag("CandleStickA")) FlipObject("PlatformToFlipi");
+        else if (collider.gameObject.CompareTag("CandleStickB")) FlipObject("PlatformToFlipii");
+        else if (collider.gameObject.CompareTag("CandleStickC")) FlipObject("PlatformToFlipiii");
+        else if (collider.gameObject.CompareTag("CandleStickD")) FlipObject("PlatformToFlipiv");
+
+        else if (collider.gameObject.CompareTag("LastCandle")) FlipObject("LastChair");
+
+        // Update the environment counter as both players must activate these
+        else if (collider.gameObject.CompareTag("LatActivator")) GameObject.Find("Enviroment").GetComponent<Environment>().LastItemsActivated++;
+
+        else if (collider.gameObject.CompareTag("Player")) GameObject.Find("Enviroment").GetComponent<Environment>().PlayersHaveMet = true;
+
+        // Only clear collectibles
         else CollectableTouched = false;
 
         if (CollectableTouched) ClearCollectable(collider);
@@ -157,7 +207,7 @@ public class Player1 : MonoBehaviour
                                                                 targetObject.transform.rotation.y, 0,
                                                                 targetObject.transform.rotation.w);
 
-            SFXManager.PlaySFX("ClearRubble");
+            SFXManager.PlaySFX("Flip");
         }
     }
 

@@ -22,6 +22,33 @@ TagManager:
   - PlatformToFlipA
   - PlatformToFlipB
   - PlatformToFlipC
+  - BlackFeather
+  - Rubble2
+  - Egg
+  - EggPlatform
+  - DoubleP2Trigger
+  - DoubleP2Platform
+  - L_NPC
+  - Rubble3
+  - L_Heart
+  - R_Heart
+  - BlackFeather2
+  - PlatformToFlipi
+  - PlatformToFlipii
+  - PlatformToFlipiii
+  - CandleStickA
+  - CandleStickB
+  - CandleStickC
+  - PlatformToFlipiv
+  - CandleStickD
+  - BarrierToDestroy
+  - LastFeathers
+  - LastCandle
+  - LastChair
+  - LatActivator
+  - LastBarrier
+  - L_Barrier
+  - R_Barrier
   layers:
   - Default
   - TransparentFX
